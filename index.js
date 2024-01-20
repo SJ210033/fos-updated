@@ -21,7 +21,7 @@ app.use(express.json());
 app.use(cors());
 
 const corsOptions = {
-	origin: ["https://fos-admin.netlify.app", "https://fos-client.netlify.app"],
+	origin: ["https://fos-admin.netlify.app", "https://fos-client.netlify.app","https://fos-updated.vercel.app"],
 	methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
 	credentials: true, // enable set cookie
 	optionsSuccessStatus: 204,
@@ -947,7 +947,7 @@ app.get("/getrecentorders", (req, res) => {
 	});
 });
 
-const port = 5555; // Use the PORT environment variable if available
+const port =  process.env.PORT || 5555; // Use the PORT environment variable if available
 
 app.listen(port, () => {
 	console.log(`Server is listening on port ${port}`);
