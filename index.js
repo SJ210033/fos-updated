@@ -21,7 +21,11 @@ app.use(express.json());
 app.use(cors());
 
 const corsOptions = {
-	origin: ["https://fos-admin.netlify.app", "https://fos-client.netlify.app","https://fos-updated.vercel.app"],
+	origin: [
+		"https://fos-admin.netlify.app",
+		"https://fos-client.netlify.app",
+		"https://fos-updated.vercel.app",
+	],
 	methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
 	credentials: true, // enable set cookie
 	optionsSuccessStatus: 204,
@@ -366,7 +370,7 @@ app.get("/getuser", (req, res) => {
 	const sql = "SELECT * FROM CUSTOMER_REGISTRATION";
 	const id = req.params.id;
 	db.query(sql, [id], (err, data) => {
-		if (err) res.json(err+"Error in Node");
+		if (err) res.json(err + "Error in Node");
 		res.send(data);
 	});
 });
@@ -947,10 +951,14 @@ app.get("/getrecentorders", (req, res) => {
 	});
 });
 
-const port =  process.env.PORT || 5555; // Use the PORT environment variable if available
+const port = process.env.PORT || 5555; // Use the PORT environment variable if available
 
 app.listen(port, () => {
 	console.log(`Server is listening on port ${port}`);
+});
+
+app.get("/port", (req, res) => {
+	return res.json("Hey, I'm alive at " + port);
 });
 
 // app.listen(5555, () => console.log("listing...."));
