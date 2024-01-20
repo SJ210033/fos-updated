@@ -958,7 +958,7 @@ app.listen(port, () => {
 });
 
 app.get("/port", (req, res) => {
-	return res.json("Hey, I'm alive at " + port);
+	return res.json("Hey, I'm alive at " + port +"and not in "+process.env.PORT);
 });
 
 // app.listen(5555, () => console.log("listing...."));
