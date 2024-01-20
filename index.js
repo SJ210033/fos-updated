@@ -366,7 +366,7 @@ app.get("/getuser", (req, res) => {
 	const sql = "SELECT * FROM CUSTOMER_REGISTRATION";
 	const id = req.params.id;
 	db.query(sql, [id], (err, data) => {
-		if (err) res.json(err);
+		if (err) res.json(err+"Error in Node");
 		res.send(data);
 	});
 });
